@@ -6,7 +6,7 @@ The scripts all exhibit the following dependencies.
 
 * [tidyverse](https://www.tidyverse.org/) for plotting and data manipulation
 * [r-simmer](https://r-simmer.org/) for the actual simulation framework
-* [futil.logger](https://cran.r-project.org/web/packages/futile.logger/index.html) for progress visualization
+* [futile.logger](https://cran.r-project.org/web/packages/futile.logger/index.html) for progress visualization
 
 Note that `tidyverse` requires the following non-R dependencies, which need to be installed using the package manager of your system, if you are running Linux.
 
