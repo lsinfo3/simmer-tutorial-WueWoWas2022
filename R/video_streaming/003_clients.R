@@ -115,7 +115,7 @@ example_client <- "client10"
 df_example_client <- states %>% 
   filter(name == example_client & key == "state")
 
-df_examlple_client_details <- attributes %>% 
+df_example_client_details <- attributes %>% 
   filter(name == example_client)
 
 p_example_state_diagram <- ggplot() +

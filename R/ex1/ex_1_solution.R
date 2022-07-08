@@ -50,12 +50,12 @@ trj_arrival <- trajectory(name = "arrival") %>%
 # Define a resource with a single processing unit and an infinitely large queue
 # Define a generator that produces events with interarrival times A
 
-#n_events <- 10
+# n_events <- 10
 
 env <- simmer("GiGi1Infty") %>% 
   add_generator(name_prefix = "arrival", trajectory = trj_arrival, distribution = a.func) %>%
-  #add_dataframe(name_prefix = "arrival", data = data.frame(time = sample(a.base_vector, n_events, replace = T)), trajectory = trj_arrival, col_time = "time", time = "interarrival") %>% 
-  add_resource(name = "serviceunit", capacity = 1, queue_size = 10)
+  # add_dataframe(name_prefix = "arrival", data = data.frame(time = sample(a.base_vector, n_events, replace = T)), trajectory = trj_arrival, col_time = "time", time = "interarrival") %>% 
+  add_resource(name = "serviceunit", capacity = 1, queue_size = Inf)
 
 # Execute simulation --------------------------------------------------------------------------------------------------------------------------------------
 
@@ -66,7 +66,7 @@ env <- simmer("GiGi1Infty") %>%
 
 env %>% 
   reset() %>% 
-  run(until = 100000)
+  run(until = 100)
 
 # Pull and evaluate results  ------------------------------------------------------------------------------------------------------------------------------
 
