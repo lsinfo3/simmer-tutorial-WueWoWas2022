@@ -66,7 +66,7 @@ env <- simmer("GiGi1Infty") %>%
 
 env %>% 
   reset() %>% 
-  run(until = 100)
+  run(until = 1000)
 
 # Pull and evaluate results  ------------------------------------------------------------------------------------------------------------------------------
 
@@ -77,15 +77,15 @@ df_resources <- get_mon_resources(env)
 df_arrivals <- df_arrivals %>%
   mutate(waiting_time = end_time - start_time - activity_time)
 
-dta_result <- \() {
-  reticulate::source_python(file = "./ex_1_dta.py", envir =  parent.frame())
-  return(data.frame(x = Wn1$xk, y = Wn1$pk))
-}
+# dta_result <- \() {
+#   reticulate::source_python(file = "./R/ex1/ex_1_dta.py", envir =  parent.frame())
+#   return(data.frame(x = Wn1$xk, y = Wn1$pk))
+# }
 
 # Plot the waiting time distribution (blue: model, red: simulation)
 p_wt <- ggplot() + 
   stat_ecdf(data = df_arrivals, mapping = aes(x = waiting_time, color = "Simulation")) +
-  geom_step(data = dta_result(), mapping = aes(x = x, y = cumsum(y), color = "Model")) + 
+  # geom_step(data = dta_result(), mapping = aes(x = x, y = cumsum(y), color = "Model")) + 
   coord_cartesian(xlim = c(0, 20)) + 
   labs(x = "Waiting Time", y = "ECDF", color = "Datasource")
 print(p_wt)
