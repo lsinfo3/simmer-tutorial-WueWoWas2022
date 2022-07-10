@@ -1,6 +1,6 @@
 # Discrete-Event Simulation using R-simmer
 
-This repository contains the two basic example simulations covered in the tutorial held during WueWoWas'22.
+This repository contains the two basic example simulations covered in the tutorial held during [WueWoWas'22](https://lsinfo3.github.io/WueWoWas2022/).
 
 The scripts all exhibit the following dependencies.
 
